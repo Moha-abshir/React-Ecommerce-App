@@ -1,0 +1,87 @@
+.homepage-hero {
+    height: 88vh;
+    width: 100%;
+    background-image: url('../assets/downlaod.jpg'); 
+    background-size: cover; 
+    background-position: center left; 
+    background-repeat: no-repeat;
+    position: relative; 
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: clamp(20px, 8vw, 100px); 
+    transform: translateY(-50%);
+    color: white; 
+    max-width: 45%; 
+}
+
+.hero-headline {
+    font-size: clamp(2rem, 3vw, 5rem); 
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    text-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.1);
+    letter-spacing: 2px;
+}
+
+.hero-subheadline {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    max-width: 600px;
+}
+
+.CTA{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.shop{
+    color: black;
+    background-color: rgb(65, 65, 65);
+}
+.cta-btn{
+    background-color: gray;
+    color: hwb(0 96% 4%);
+    padding: .8em 1.6em;
+    margin-right: 1em;
+    border: none;
+    border-radius: 5px;
+    width: 25%;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+}
+.cta-btn:active{
+    transform: scale(1);
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 30%; right: 30%;
+    width: 40%;
+    align-items: center;
+    height: 12vh;
+}
+.provider, .contact{
+    margin: auto;
+}
+.provide{
+    color: teal;
+    text-decoration: none;
+}
+.git{
+    color: rgb(154, 154, 252);
+    text-decoration: none;
+}
