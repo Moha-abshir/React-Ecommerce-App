@@ -5,14 +5,17 @@
     gap: 1rem; /* space between items */
     margin-top: 1em;
 }
-.product-grid .product{
-    height: auto;
-}
+
 .product-grid .product{
     border: 1px solid white;
     border-radius: 10px;
-    height: 73vh;
+    height: auto;
+    transition: all .3s ease;
 }
+.product-grid .product:hover{
+    transform: translateY(-3px);
+}
+
 .product-grid .product .image-container{
     width: 100%;
     height: 45vh;
@@ -27,6 +30,7 @@
 .product-grid .product .product-name{
     font-size: clamp(1.2rem, 1.2vw, 3rem);
     padding: .5rem .3rem;
+    height: 12vh;
 }
 .product-grid .product .product-price{
     color: rgb(141, 141, 141);
