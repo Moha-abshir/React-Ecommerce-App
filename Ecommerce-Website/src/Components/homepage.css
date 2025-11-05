@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 30%; right: 30%;
+    left: 30%; right: 30%; top: 100%;
     width: 40%;
     align-items: center;
     height: 12vh;

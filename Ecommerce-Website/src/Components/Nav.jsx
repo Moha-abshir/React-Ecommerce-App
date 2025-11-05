@@ -4,6 +4,7 @@ import { GrUserNew } from "react-icons/gr";
 import { BsMoonStars } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa6";
 import './nav.css'
+
 export function Nav(){
     return(
         <nav>
@@ -13,8 +14,8 @@ export function Nav(){
 
             <div className="nav-links">
                 <NavLink to='/' className='links'>Home</NavLink>
-                <NavLink to='/about' className='links'>About</NavLink>
                 <NavLink to='/products' className='links'>Products</NavLink>
+                <NavLink to='/about' className='links'>About</NavLink>
             </div>
 
             <div className="user-part">
