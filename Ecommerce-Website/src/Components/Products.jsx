@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import { IoIosSearch } from "react-icons/io";
 import { Nav } from "./Nav";
 import { ProductFilter } from './ProductFilter';
+import { ProductGrid } from './ProductGrid';
 import './products.css';
+
 
 export function  Products(){
     const [categories, setCategories] = useState([]);
@@ -66,10 +68,8 @@ export function  Products(){
                         </div>
                     </div>
                     <ProductFilter isShown={isShown}/>
-
-                    <div className="product-grid">
-                        
-                    </div>
+                    <ProductGrid/>
+                    
                 </section>
                 
             </main>
