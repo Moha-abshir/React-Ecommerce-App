@@ -76,7 +76,7 @@ main{
     border: none;
 }
 
-.product-section .filter-option{
+.filter-option{
   position: fixed;
   top: 50%;
   left: 50%;
@@ -94,14 +94,14 @@ main{
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.product-section .filter-option .title{
+.filter-option .title{
     border-bottom: 1px solid rgb(54, 54, 54);
     margin-bottom: 0.5em;
     width: 100%;
     text-align: center;
     font-size: clamp(1.5rem, 2vw, 4rem);
 }
-.product-section .filter-option .cat{
+.filter-option .cat{
     display: flex;
     flex-direction: row;
     height: 8vh;
@@ -109,7 +109,7 @@ main{
     gap: 10%;
     width: 70%;
 }
-.product-section .filter-option .cat select{
+.filter-option .cat select{
     background-color: black;
     color: white;
     border: 2px solid rgb(61, 61, 61);
@@ -118,16 +118,16 @@ main{
     width: 100%;
     
 }
-.product-section .filter-option .price-estimate{
+.filter-option .price-estimate{
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;
 }
-.product-section .filter-option .price-estimate .estimator{
+.filter-option .price-estimate .estimator{
     display: flex;
     gap: 10px;    
 }
-.product-section .filter-option .price-estimate .estimator input{
+.filter-option .price-estimate .estimator input{
     background-color: black;
     color: white;
     border: 2px solid rgb(61, 61, 61);
@@ -135,11 +135,11 @@ main{
     padding: .5em 1em;
     width: 90%;
 }
-.product-section .filter-option .exact-details{
+.filter-option .exact-details{
     display: flex;
     gap: 15px;
 }
-.product-section .filter-option .exact-details input{
+.filter-option .exact-details input{
     background-color: black;
     color: white;
     border: 2px solid rgb(61, 61, 61);
@@ -147,16 +147,16 @@ main{
     padding: .5em 1em;
     width: 90%;
 }
-.product-section .filter-option .exact-details .warning{
+.filter-option .exact-details .warning{
     font-size: clamp(.5rem, .8vw, 1rem);
     color: red;
 }
-.product-section .filter-option .complete{
+.filter-option .complete{
     margin-left: 33%;
     width: 33%;
     margin-top: 1em;
 }
-.product-section .filter-option .complete button{
+.filter-option .complete button{
     background-color: rgb(71, 69, 69);
     color: white;
     cursor: pointer;

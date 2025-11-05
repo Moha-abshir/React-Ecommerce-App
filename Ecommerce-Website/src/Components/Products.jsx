@@ -2,16 +2,13 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { IoIosSearch } from "react-icons/io";
 import { Nav } from "./Nav";
+import { ProductFilter } from './ProductFilter';
 import './products.css';
-
-
 
 export function  Products(){
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
     const [isShown, setIsShown] = useState(false);
-
 
     useEffect(() => {
         try {
@@ -38,9 +35,6 @@ export function  Products(){
             </>
         )
     }
-
-
-
 
     return(
         <>
@@ -71,47 +65,10 @@ export function  Products(){
                             <div><input type="text" placeholder='Search'/></div>
                         </div>
                     </div>
-                    <div className={`filter-option ${isShown ? 'show' : ''}`}>
-                        <div className="title"><h3>Filter</h3></div>
-                        <div className='cat'>
-                            <div>Category:</div>
-                            <div>
-                                <select name="category" id="category">
-                                    <option value="default" >Default</option>
-                                    <option value="clothes" >Clothes</option>
-                                    <option value="electronics" >Electronics</option>
-                                    <option value="furniture" >Furniture</option>
-                                    <option value="shoes" >Shoes</option>
-                                    <option value="miscellaneous" >miscellaneous</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className='price-estimate'>
-                            <div>
-                                <p>Price Range:</p>
-                            </div>
-                            <div className='estimator'>
-                                <div><p>Min Price</p><input type="text"/></div>
-                                <div><p>Max Price</p><input type="text"/></div>
-                            </div>
-                        </div>
-                        <div className='exact-details'>
-                            <div>
-                                <p>Name of the Product:</p>
-                                <input type="text"/>
-                                <p className='warning'>Enter the name if you know exactly what you are looking for!</p>
-                            </div>
-                            <div>
-                                <p>Exact Price:</p>
-                                <input type="text"/>
-                                <p className='warning'>Do not enter the exact price if you already estimated it within the range</p>
-                            </div>
-                        </div>
+                    <ProductFilter isShown={isShown}/>
 
-                        <div className='complete'>
-                            <button>Complete Filtration</button>
-                        </div>
-
+                    <div className="product-grid">
+                        
                     </div>
                 </section>
                 
