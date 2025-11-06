@@ -1,7 +1,7 @@
 .homepage-hero {
     height: 88vh;
     width: 100%;
-    background-image: url('../assets/downlaod.jpg'); 
+    background-image: url('../../assets/downlaod.jpg'); 
     background-size: cover; 
     background-position: center left; 
     background-repeat: no-repeat;
@@ -56,6 +56,10 @@
     width: 25%;
     cursor: pointer;
     transition: all .5s ease-in-out;
+}
+.cta-btn a{
+    color: white;
+    text-decoration: none ;
 }
 
 .cta-btn:hover {

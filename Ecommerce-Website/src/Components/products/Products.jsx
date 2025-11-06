@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { IoIosSearch } from "react-icons/io";
-import { Nav } from "./Nav";
+import { Nav } from "../nav/Nav";
 import { ProductFilter } from './ProductFilter';
 import { ProductGrid } from './ProductGrid';
 import './products.css';
 
 
-export function  Products(){
+export function  Products({products}){
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isShown, setIsShown] = useState(false);
@@ -47,9 +48,9 @@ export function  Products(){
                 <section className="categories">
                     <ul className='cat-lists'>
                         {
-                            categories.map((cat, index)=>{
+                            categories.map((cat)=>{
                                 return(
-                                    <li key={index} className='cart-items'><a className='cart-item-link' href="#">{cat}</a></li>
+                                    <li key={cat.id} className='cart-items'><a className='cart-item-link' href="#">{cat}</a></li>
                                 );
                             })
                         }
@@ -68,7 +69,7 @@ export function  Products(){
                         </div>
                     </div>
                     <ProductFilter isShown={isShown}/>
-                    <ProductGrid/>
+                    <ProductGrid products={products}/>
                     
                 </section>
                 
@@ -77,3 +78,6 @@ export function  Products(){
         </>
     )
 }
+Products.propTypes = {
+  products: PropTypes.array.isRequired,
+};

@@ -1,9 +1,10 @@
-import { Nav } from './Nav'
+import { Nav } from '../nav/Nav'
+import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import './homepage.css'
 
 export function HomePage(){
-
+    
     return(
         <>
             <Nav/>
@@ -19,10 +20,14 @@ export function HomePage(){
                         </p>
                         
                         <div className="CTA">
-                            <button className="shop cta-btn">
-                                <FaShoppingCart style={{ marginRight: '8px' }} /> 
-                                SHOP NOW
-                            </button>
+                            
+                                <button className="shop cta-btn">
+                                    <Link to='/products'>
+                                        <FaShoppingCart style={{ marginRight: '8px' }} /> 
+                                        SHOP NOW
+                                    </Link>
+                                </button>
+                            
                             <button className='cta-btn learn'> Learn More</button>
                         </div>
                     </div>

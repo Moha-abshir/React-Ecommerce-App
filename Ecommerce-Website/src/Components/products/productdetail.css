@@ -1,0 +1,87 @@
+.more-information{
+    position: absolute;
+    width: 35%;
+    left: 33%;
+    border: 1px solid white;
+    border-radius: 14px;
+    height: auto;
+    background-color: rgb(43, 43, 43);
+}
+.more-information .image-container{
+    width: 100%;
+    height: 45vh;
+    
+}   
+.more-information .image-container img{
+   width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+.more-information .detail{
+    width: 100%;
+    padding: .5rem .3rem;
+}
+.more-information .detail .name{
+    font-size: clamp(1rem, 1.4vw, 1.9rem);
+    font-weight: 600;
+}
+.more-information .detail .category{
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+    font-weight: 500;
+    color: rgb(139, 139, 139);
+}
+.more-information .detail .price{
+    font-size: clamp(0.6rem, 1.1vw, 1.3rem);
+    font-weight: 400;
+    color: rgb(138, 138, 138);
+}
+.more-information .description{
+    width: 100%;
+    padding: .5rem .3rem;
+    text-align: justify;
+}
+.more-information .description h4{
+    font-size: clamp(1rem, 1.4vw, 1.7rem);
+    text-decoration: underline;
+    color: antiquewhite;
+}
+.more-information .description p{
+    font-size: clamp(0.6rem, 1.1vw, 1.3rem);
+    font-weight: 400;
+    color: rgb(212, 212, 212);
+}
+.more-information .navigate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.more-information .navigate .return{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10%;
+    border-radius: 50%;
+    padding: .5em;
+    transition: all .3s ease;
+}
+.more-information .navigate .return:hover{
+    background-color: rgba(216, 216, 216, 0.26);
+}
+.more-information .navigate .return:active{
+    background-color: rgba(216, 216, 216, 0.1);
+}
+
+.more-information .navigate .add{
+    border: 1px solid teal;
+    background-color: rgb(116, 216, 230);
+    padding: .6em .4em;
+    margin-right: 10%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.more-information .navigate .add:active{
+    background-color: rgb(97, 181, 192);
+}

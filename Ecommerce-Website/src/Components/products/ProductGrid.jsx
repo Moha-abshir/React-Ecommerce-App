@@ -1,22 +1,14 @@
-import axios from 'axios';
-import './productgrid.css'
-import { useEffect, useState } from 'react';
-export function ProductGrid(){
-    const [products, setProducts] = useState([]);
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './productgrid.css';
+export function ProductGrid({products}){
     
-    useEffect(()=>{
-        const getProducts = async function () {
-            const res = await axios.get('https://api.escuelajs.co/api/v1/products');
-            setProducts(res.data);
-        }
-        getProducts();
-    }, []);
 
-    console.log(products[0])
     return(
         <div className="product-grid">
 
             {products.map((product)=>{
+                
                 return(
                     <div className='product' key={product.id}>
                         <div className='image-container'>
@@ -27,11 +19,13 @@ export function ProductGrid(){
                                 <p>{product.title}</p>
                             </div>
                             <div className="product-price">
-                                <p>Price: £${product.price}</p>
+                                <p>Price: ${product.price}</p>
                             </div>
                         </div>
                         <div className="product-more-cta">
-                            <button className='more'>More Detail</button>
+                            <button className='more'>{
+                                <Link to={`/products/${product.id}`}>More Detail</Link>
+                            }</button>
                             <button className='cta'>Add To Cart</button>
                         </div>
                     </div>
@@ -41,3 +35,6 @@ export function ProductGrid(){
         </div>
     )
 }
+ProductGrid.propTypes = {
+  products: PropTypes.array.isRequired,
+};

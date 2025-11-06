@@ -53,7 +53,12 @@
     color: white;
     padding: 0.6em .5em;
     border-radius: 5px;
+    cursor: pointer;
     transition: all .3s ease;
+}
+.product-grid .product .product-more-cta .more a{
+    color: white;
+    text-decoration: none;
 }
 .product-grid .product .product-more-cta .more:hover{
     background-color: rgba(46, 143, 255, 0.1);
@@ -64,4 +69,5 @@
     border-radius: 5px;
     background-color: rgb(93, 169, 255);
     border: none;
+    cursor: pointer;
 }

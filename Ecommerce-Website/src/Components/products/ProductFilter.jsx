@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './homepage.css'
+import '../Home/homepage.css'
 
 export function ProductFilter({isShown}){
     
