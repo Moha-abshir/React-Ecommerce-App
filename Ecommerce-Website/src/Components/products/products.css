@@ -24,13 +24,10 @@ main{
 .categories ul li{
     height: 3em;
     transition: all .3s ease-in-out;
+    cursor: pointer;
 }
 .categories ul li:hover{
     background-color: rgb(56, 56, 56);
-}
-.categories ul li a{
-    color: white;
-    text-decoration: none;
 }
 
 .product-section{

@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './productgrid.css';
-export function ProductGrid({products}){
-    
+import noProducts  from '../../assets/no-products.png'
+
+export function ProductGrid({filteredProducts}){
+
+    if (filteredProducts.length === 0) {
+        return (
+            <div style={{ textAlign: 'center', padding: '20px', fontSize: '1.2em', color: '#888' }}>
+                <img src={noProducts} alt="noProductsFound"/>
+            </div>
+        );
+    }
 
     return(
         <div className="product-grid">
 
-            {products.map((product)=>{
-                
+            {filteredProducts.map((product)=>{
+
                 return(
                     <div className='product' key={product.id}>
                         <div className='image-container'>
@@ -36,5 +45,5 @@ export function ProductGrid({products}){
     )
 }
 ProductGrid.propTypes = {
-  products: PropTypes.array.isRequired,
+  filteredProducts: PropTypes.array.isRequired,
 };

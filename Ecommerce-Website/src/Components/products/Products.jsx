@@ -8,10 +8,15 @@ import { ProductGrid } from './ProductGrid';
 import './products.css';
 
 
-export function  Products({products}){
+export function  Products({products, handleMin, handleMax, min, max}){
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isShown, setIsShown] = useState(false);
+    const [filteredProducts, setFilteredProducts] = useState(products)
+
+    useEffect(()=>{
+        setFilteredProducts(products)
+    },[products])
 
     useEffect(() => {
         try {
@@ -39,6 +44,15 @@ export function  Products({products}){
         )
     }
 
+    const filterProducts = function (categoryId){
+            if(categoryId === "All"){
+                setFilteredProducts(products)
+            }
+            else{
+                const necessaryDisplayedProduct = products.filter(p=> p.category.name === categoryId)
+                setFilteredProducts(necessaryDisplayedProduct)
+            }
+        }
     return(
         <>
             <Nav/>
@@ -48,9 +62,11 @@ export function  Products({products}){
                 <section className="categories">
                     <ul className='cat-lists'>
                         {
-                            categories.map((cat)=>{
+                            categories.map((cat, index)=>{                      
                                 return(
-                                    <li key={cat.id} className='cart-items'><a className='cart-item-link' href="#">{cat}</a></li>
+                                    <li key={index} className='cart-items' onClick={()=>{filterProducts(cat)}}>
+                                        {cat}
+                                    </li>
                                 );
                             })
                         }
@@ -68,8 +84,8 @@ export function  Products({products}){
                             <div><input type="text" placeholder='Search'/></div>
                         </div>
                     </div>
-                    <ProductFilter isShown={isShown}/>
-                    <ProductGrid products={products}/>
+                    <ProductFilter isShown={isShown} setIsShown={setIsShown} handleMin={handleMin} handleMax={handleMax} min={min} max={max}/>
+                    <ProductGrid filteredProducts={filteredProducts} />
                     
                 </section>
                 
@@ -80,4 +96,8 @@ export function  Products({products}){
 }
 Products.propTypes = {
   products: PropTypes.array.isRequired,
+  handleMin: PropTypes.func.isRequired,
+  handleMax: PropTypes.func.isRequired,
+  min: PropTypes.string.isRequired,
+  max: PropTypes.string.isRequired
 };
