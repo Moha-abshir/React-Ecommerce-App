@@ -5,6 +5,7 @@ import { ProductDetail } from "./Components/products/ProductDetail";
 import { Cart } from "./Components/cart/Cart";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { About } from "./Components/about/About";
 
 
 export function App() {
@@ -73,8 +74,8 @@ export function App() {
             <Route index element={<HomePage/>}/>
 
             <Route path="products" element={<Products products={products} handleMin={handleMin} handleMax={handleMax} min={min} max={max} handleName={handleName} productName={productName} addToCart={addToCart} cartItems={cartItems}/>}/>
-
             <Route path="products/:id" element={<ProductDetail products={products} addToCart={addToCart}/>}/>
+            <Route path="about" element={<About/>}/>
             <Route path="cart" element={<Cart cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} decreaseQuantity={decreaseQuantity}/>}/>
             
         </Routes>

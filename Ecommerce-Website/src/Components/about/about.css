@@ -1,0 +1,77 @@
+.about{
+    padding: 4em 10em;
+    font-size: clamp(1.3rem, 1.5vw, 2.5rem);
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about-me, .technologies-used{
+    margin-bottom: 2em;
+}
+.about .about-me h2{
+    color: rgb(3, 104, 255);
+    font-size: clamp(1.4, 1.7vw, 3);
+}
+.name{
+    color: rgb(4, 105, 255);
+}
+.technologies-used h2{
+    color: rgb(3, 104, 255);
+    font-size: clamp(1.4, 1.7vw, 3);
+}
+.technologies{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    font-size: 3.5rem;
+}
+.react:hover{
+    color: #149ECA;
+}
+.js:hover{
+    color: #EFD81C;
+}
+.css:hover{
+    color: #633194;
+}
+.lets-connect{
+    margin-bottom: 2em;
+}
+.lets-connect h2{
+    color: rgb(3, 104, 255);
+    font-size: clamp(1.4, 1.7vw, 3);
+}
+.connect{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    font-size: 3.5rem;
+}
+.linkdin{
+    color: white;
+}
+.linkdin:hover{
+    color: #0077B5;
+}
+.git2{
+    color: white;
+}
+.git2:hover{
+    color: black;
+}
+
+.footer-about{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    height: 12vh;
+}
+.provider-about, .contact-about{
+    margin: auto;
+}
+.provide-about{
+    color: teal;
+    text-decoration: none;
+}

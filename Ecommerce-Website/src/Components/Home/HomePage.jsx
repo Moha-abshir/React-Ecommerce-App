@@ -28,7 +28,9 @@ export function HomePage(){
                                     </Link>
                                 </button>
                             
-                            <button className='cta-btn learn'> Learn More</button>
+                                
+                                    <button className='cta-btn learn'> <Link to='/about'>Learn More</Link></button>
+    
                         </div>
                     </div>
 
