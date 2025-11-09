@@ -6,7 +6,6 @@ import './cart.css'
 export function Cart({ cartItems, addToCart, removeFromCart, decreaseQuantity }){
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-
     if (cartItems.length === 0) {
         return (
             <>
@@ -49,7 +48,15 @@ export function Cart({ cartItems, addToCart, removeFromCart, decreaseQuantity })
                 </div>
 
                 <div className="payment-summery">
-                    <h3>Total: ${totalPrice.toFixed(2)}</h3>
+                    <div className="title">PAYMENT SUMMERY</div>
+                    <div className="price-details">
+                        <div><p>Sub Total:</p> <p>${totalPrice.toFixed(2)}</p></div>
+                        <div><p>Estimated Tax: </p><p>$0.00</p></div>
+                    </div>
+                    <div className="total">
+                        <p>Total: </p> <p>${totalPrice.toFixed(2)}</p>
+                    </div>
+                    <div><button>Checkout</button></div>
                 </div>
             </section>
         </>
@@ -60,5 +67,5 @@ Cart.propTypes = {
     cartItems: PropTypes.array.isRequired,
     addToCart: PropTypes.func.isRequired,
     removeFromCart: PropTypes.func.isRequired,
-    decreaseQuantity: PropTypes.func.isRequired,
+    decreaseQuantity: PropTypes.func.isRequired
 }

@@ -1,12 +1,9 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import PropTypes from 'prop-types';
-import './productgrid.css';
-import { FaCheck } from "react-icons/fa";
+
+import { SingleProduct } from './SingleProduct';
 import noProducts  from '../../assets/no-products.png'
 
 export function ProductGrid({filteredProducts, addToCart}){
-    const [check, setCheck] = useState(false);
 
     if (filteredProducts.length === 0) {
         return (
@@ -15,16 +12,6 @@ export function ProductGrid({filteredProducts, addToCart}){
             </div>
         );
     }
-    
-
-    const handleTwoFunction = function(id){
-        addToCart(id)
-        setCheck(true);
-
-        setTimeout(() => {
-            setCheck(false)
-        }, 1000);
-    }
 
     return(
         <div className="product-grid">
@@ -32,28 +19,7 @@ export function ProductGrid({filteredProducts, addToCart}){
             {filteredProducts.map((product)=>{
 
                 return(
-                    <div className='product' key={product.id}>
-                        <div className='image-container'>
-                            <img src={`${product.images[0]}`} alt={product.title}/>
-                        </div>
-                        <div className="product-details">
-                            <div className="product-name">
-                                <p>{product.title}</p>
-                            </div>
-                            <div className="product-price">
-                                <p>Price: ${product.price}</p>
-                            </div>
-                        </div>
-                        <div className={`checked ${check===true ? 'active' : ''}`}>
-                            <FaCheck /> Added
-                        </div>
-                        <div className="product-more-cta">
-                            <button className='more'>{
-                                <Link to={`/products/${product.id}`}>More Detail</Link>
-                            }</button>
-                            <button className='cta' onClick={()=>{handleTwoFunction(product.id)}}>Add To Cart</button>
-                        </div>
-                    </div>
+                    <SingleProduct key={product.id} product={product} addToCart={addToCart}/>
                 )
             })}
             

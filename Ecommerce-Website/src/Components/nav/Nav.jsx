@@ -2,14 +2,25 @@ import { NavLink } from "react-router-dom";
 import { IoLogInOutline } from "react-icons/io5";
 import { GrUserNew } from "react-icons/gr";
 import { BsMoonStars } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaBars, FaTimes } from "react-icons/fa";
 import './nav.css'
+import { useState } from "react";
 
 export function Nav(){
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    }
+
     return(
-        <nav>
+        <nav className={isOpen ? 'nav-open' : ''}>
             <div className="logo">
                 <NavLink to='/' className='logo-link'><p>React Shop</p></NavLink>
+            </div>
+
+            <div className="hamburger" onClick={toggleMenu}>
+                {isOpen ? <FaTimes size={20} color="white"/> : <FaBars size={20} color="white"/>}
             </div>
 
             <div className="nav-links">

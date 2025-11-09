@@ -11,11 +11,11 @@ import './products.css';
 
 
 
-export function  Products({products, handleMin, handleMax, min, max, handleName, productName,addToCart}){
+export function  Products({products, handleMin, handleMax, min, max, handleName, productName,addToCart, cartItems}){
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isShown, setIsShown] = useState(false);
-    const [filteredProducts, setFilteredProducts] = useState(products)
+    const [filteredProducts, setFilteredProducts] = useState(products);
 
     useEffect(()=>{
         setFilteredProducts(products)
@@ -48,14 +48,15 @@ export function  Products({products, handleMin, handleMax, min, max, handleName,
     }
 
     const filterProducts = function (categoryId){
-            if(categoryId === "All"){
-                setFilteredProducts(products)
-            }
-            else{
-                const necessaryDisplayedProduct = products.filter(p=> p.category.name === categoryId)
-                setFilteredProducts(necessaryDisplayedProduct)
-            }
+        if(categoryId === "All"){
+            setFilteredProducts(products)
         }
+        else{
+            const necessaryDisplayedProduct = products.filter(p=> p.category.name === categoryId)
+            setFilteredProducts(necessaryDisplayedProduct)
+        }
+    }
+
     return(
         <>
             <Nav/>
@@ -90,7 +91,7 @@ export function  Products({products, handleMin, handleMax, min, max, handleName,
                             <div>
                                 <Link to='/cart'>
                                     <FaShoppingCart size={35} color='white' style={{ marginLeft: '10px', zIndex: '0'}}/>
-                                    <div className='cartNumber'>3</div>
+                                    <div className='cartNumber'>{cartItems.length}</div>
                                 </Link>
                             </div>
                         </div>
@@ -113,5 +114,6 @@ Products.propTypes = {
   max: PropTypes.string.isRequired,
   handleName: PropTypes.func.isRequired,
   productName: PropTypes.string.isRequired, 
-  addToCart: PropTypes.func.isRequired
+  addToCart: PropTypes.func.isRequired, 
+  cartItems: PropTypes.array.isRequired
 };

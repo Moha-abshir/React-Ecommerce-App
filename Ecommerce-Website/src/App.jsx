@@ -72,7 +72,7 @@ export function App() {
         <Routes>
             <Route index element={<HomePage/>}/>
 
-            <Route path="products" element={<Products products={products} handleMin={handleMin} handleMax={handleMax} min={min} max={max} handleName={handleName} productName={productName} addToCart={addToCart} />}/>
+            <Route path="products" element={<Products products={products} handleMin={handleMin} handleMax={handleMax} min={min} max={max} handleName={handleName} productName={productName} addToCart={addToCart} cartItems={cartItems}/>}/>
 
             <Route path="products/:id" element={<ProductDetail products={products} addToCart={addToCart}/>}/>
             <Route path="cart" element={<Cart cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} decreaseQuantity={decreaseQuantity}/>}/>

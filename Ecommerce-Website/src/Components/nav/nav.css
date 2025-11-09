@@ -63,3 +63,56 @@ nav .user-part button{
     padding: .3em;
     margin-left: 7px;
 }
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 1.5em;
+        right: 1.5em;
+    }
+
+    nav .nav-links {
+        display: none;
+    }
+
+    nav .user-part {
+        display: none;
+    }
+
+    nav.nav-open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 5em;
+        left: 0;
+        width: 100%;
+        background-color: #181818;
+        border-top: 1px solid rgb(78, 78, 78); 
+        padding: 1em;
+    }
+
+    nav.nav-open .user-part {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 15em;
+        left: 0;
+        width: 100%;
+        background-color: #181818;
+        padding: 1em;
+    }
+
+    nav.nav-open .nav-links .links {
+        margin-bottom: 1em;
+    }
+
+    nav.nav-open .user-part .action {
+        margin-bottom: 1em;
+    }
+}
