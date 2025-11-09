@@ -1,14 +1,17 @@
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { IoIosSearch } from "react-icons/io";
-import { Nav } from "../nav/Nav";
 import { ProductFilter } from './ProductFilter';
 import { ProductGrid } from './ProductGrid';
+import { Nav } from "../nav/Nav";
+import { IoIosSearch } from "react-icons/io";
+import { FaShoppingCart } from "react-icons/fa";
 import './products.css';
 
 
-export function  Products({products, handleMin, handleMax, min, max}){
+
+export function  Products({products, handleMin, handleMax, min, max, handleName, productName,addToCart}){
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isShown, setIsShown] = useState(false);
@@ -79,13 +82,21 @@ export function  Products({products, handleMin, handleMax, min, max}){
                             Filter
                         </div>
 
-                        <div className="search">
-                            <div><IoIosSearch size={25} style={{ marginRight: '10px'}}/></div>
-                            <div><input type="text" placeholder='Search'/></div>
+                        <div className='search-cart'> 
+                            <div className="search">
+                                <div><IoIosSearch size={25} style={{ marginRight: '10px'}}/></div>
+                                <div><input type="text" placeholder='Search' onChange={handleName} value={productName}/></div>
+                            </div>
+                            <div>
+                                <Link to='/cart'>
+                                    <FaShoppingCart size={35} color='white' style={{ marginLeft: '10px', zIndex: '0'}}/>
+                                    <div className='cartNumber'>3</div>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                     <ProductFilter isShown={isShown} setIsShown={setIsShown} handleMin={handleMin} handleMax={handleMax} min={min} max={max}/>
-                    <ProductGrid filteredProducts={filteredProducts} />
+                    <ProductGrid filteredProducts={filteredProducts} addToCart={addToCart}/>
                     
                 </section>
                 
@@ -99,5 +110,8 @@ Products.propTypes = {
   handleMin: PropTypes.func.isRequired,
   handleMax: PropTypes.func.isRequired,
   min: PropTypes.string.isRequired,
-  max: PropTypes.string.isRequired
+  max: PropTypes.string.isRequired,
+  handleName: PropTypes.func.isRequired,
+  productName: PropTypes.string.isRequired, 
+  addToCart: PropTypes.func.isRequired
 };

@@ -1,0 +1,76 @@
+.cart-details-payments{
+    display: flex;
+    flex-direction: row;
+    margin: .8em;
+}
+.cart-details-payments .cart-section{
+    display: flex;
+    flex-direction: column;
+}
+.cart-details-payments .cart-details{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 15px;
+    align-items: center;
+    border-bottom: 2px solid white;
+    margin-bottom: 1em;
+}
+.cart-details-payments .cart-details .image-container{
+    width: 20%;
+    border-radius: 10px;
+}
+.cart-details-payments .cart-details .image-container img{
+    width: 100%;
+    border-radius: 10px;
+    object-fit: contain;
+}
+.cart-details-payments .cart-details .cart-actions{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+    align-items: center;
+    padding-bottom: .9em;
+}
+.cart-details-payments .cart-details .cart-actions .add-or-subtract-product{
+    display: inline-flex;
+    align-items: center;
+    background-color: #111;
+    color: white;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 1.2rem;
+    gap: 8px;
+    user-select: none;
+}
+.cart-details-payments .cart-details .cart-actions .add-or-subtract-product button{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    transition: background-color 0.3s;
+    border-radius: 6px;
+}
+.cart-details-payments .cart-details .cart-actions .add-or-subtract-product button:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.cart-details-payments .cart-details .cart-actions .add-or-subtract-product .number{
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+.cart-details-payments .cart-details .cart-actions .deleteBtn{
+    font-size: 2.2rem;
+    border-radius: 50%;
+    transition: all .3s ease;
+}
+.cart-details-payments .cart-details .cart-actions .deleteBtn:hover{
+    color: red;
+}
+.cart-details-payments .cart-details .cart-actions .deleteBtn:active{
+    background-color: gray;
+}

@@ -54,6 +54,26 @@ main{
     padding-top: 5px;
     cursor: pointer;
 }
+.product-section .filter-search .search-cart{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 5vh;
+
+}
+.product-section .filter-search .search-cart .cartNumber{
+    color: black;
+    font-size: .7rem;
+    text-align: center;
+    background-color: rgb(93, 169, 255);
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
 .product-section .filter-search .search{
     display: flex;
     flex-direction: row;

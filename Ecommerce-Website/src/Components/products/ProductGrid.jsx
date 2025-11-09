@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './productgrid.css';
+import { FaCheck } from "react-icons/fa";
 import noProducts  from '../../assets/no-products.png'
 
-export function ProductGrid({filteredProducts}){
+export function ProductGrid({filteredProducts, addToCart}){
+    const [check, setCheck] = useState(false);
 
     if (filteredProducts.length === 0) {
         return (
@@ -11,6 +14,16 @@ export function ProductGrid({filteredProducts}){
                 <img src={noProducts} alt="noProductsFound"/>
             </div>
         );
+    }
+    
+
+    const handleTwoFunction = function(id){
+        addToCart(id)
+        setCheck(true);
+
+        setTimeout(() => {
+            setCheck(false)
+        }, 1000);
     }
 
     return(
@@ -31,11 +44,14 @@ export function ProductGrid({filteredProducts}){
                                 <p>Price: ${product.price}</p>
                             </div>
                         </div>
+                        <div className={`checked ${check===true ? 'active' : ''}`}>
+                            <FaCheck /> Added
+                        </div>
                         <div className="product-more-cta">
                             <button className='more'>{
                                 <Link to={`/products/${product.id}`}>More Detail</Link>
                             }</button>
-                            <button className='cta'>Add To Cart</button>
+                            <button className='cta' onClick={()=>{handleTwoFunction(product.id)}}>Add To Cart</button>
                         </div>
                     </div>
                 )
@@ -46,4 +62,5 @@ export function ProductGrid({filteredProducts}){
 }
 ProductGrid.propTypes = {
   filteredProducts: PropTypes.array.isRequired,
+  addToCart: PropTypes.func.isRequired
 };

@@ -4,7 +4,7 @@ import { Nav } from "../nav/Nav";
 import { GiReturnArrow } from "react-icons/gi";
 import './productdetail.css'
 
-export function ProductDetail({products}){
+export function ProductDetail({products, addToCart}){
     const {id} = useParams();
     const product = products.find(p=> Number(p.id)===Number(id));
 
@@ -26,7 +26,7 @@ export function ProductDetail({products}){
                 </div>
                 <div className="navigate">
                     <Link to='/products'><button className="return"><GiReturnArrow size={40} color="white"/></button></Link>
-                    <button className="add">Add To Cart</button>
+                    <Link to='cart'><button className="add" onClick={()=>{addToCart(product.id)}}>Add To Cart</button></Link>
                 </div>
             </div>
         </>
@@ -34,4 +34,5 @@ export function ProductDetail({products}){
 }
 ProductDetail.propTypes = {
   products: PropTypes.array.isRequired,
-};  
+  addToCart: PropTypes.func.isRequired
+};
