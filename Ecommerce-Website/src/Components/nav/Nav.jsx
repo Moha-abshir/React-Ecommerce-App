@@ -1,7 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoLogInOutline } from "react-icons/io5";
 import { GrUserNew } from "react-icons/gr";
-import { BsMoonStars } from "react-icons/bs";
 import { FaGithub, FaBars, FaTimes } from "react-icons/fa";
 import './nav.css'
 import { useState } from "react";
@@ -38,12 +37,16 @@ export function Nav(){
                     <GrUserNew style={{ marginRight: '8px'}} size={20}/> <span >Sign In</span>
                 </div>
 
-                <div>
+                {/* <div>
                     <button><BsMoonStars color="rgb(0, 217, 255)" size={20}/></button>
-                </div>
+                </div> */}
 
                 <div>
-                    <button><FaGithub color="white" size={20}/></button>
+                    <button>
+                        <Link to='https://github.com/Moha-abshir/React-Ecommerce-App' target="blank">
+                            <FaGithub color="white" size={20}/>
+                        </Link>
+                    </button>
                 </div>
             </div>
         </nav>

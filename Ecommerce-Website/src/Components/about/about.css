@@ -1,9 +1,10 @@
 .about{
-    padding: 4em 10em;
+    padding: 4em 10em 0 10em;
     font-size: clamp(1.3rem, 1.5vw, 2.5rem);
     margin-bottom: 2em;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 .about-me, .technologies-used{

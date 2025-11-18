@@ -3,6 +3,8 @@ import { HomePage } from "./Components/Home/HomePage";
 import { Products } from "./Components/products/Products";
 import { ProductDetail } from "./Components/products/ProductDetail";
 import { Cart } from "./Components/cart/Cart";
+import { Login } from "./Components/auth/Login";
+import { SignUp } from "./Components/auth/SignUp";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { About } from "./Components/about/About";
@@ -77,6 +79,8 @@ export function App() {
             <Route path="products/:id" element={<ProductDetail products={products} addToCart={addToCart}/>}/>
             <Route path="about" element={<About/>}/>
             <Route path="cart" element={<Cart cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} decreaseQuantity={decreaseQuantity}/>}/>
+            <Route path="login" element={<Login/>}/>
+            <Route path="signUp" element={<SignUp/>}/>
             
         </Routes>
     )
