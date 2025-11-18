@@ -63,6 +63,10 @@ nav .user-part button{
     padding: .3em;
     margin-left: 7px;
 }
+nav .user-part a{
+    color: white;
+    text-decoration: none;
+}
 
 .hamburger {
     display: none;

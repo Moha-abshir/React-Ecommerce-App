@@ -30,11 +30,15 @@ export function Nav(){
 
             <div className="user-part">
                 <div className=" action">
-                    <IoLogInOutline style={{ marginRight: '8px' }} size={20}/> <span >Login</span>
+                    <Link to='/login'>
+                        <IoLogInOutline style={{ marginRight: '8px', color:'white' }} size={20}/> <span className="navigate">Login</span>
+                    </Link>
                 </div>
 
                 <div className="action">
-                    <GrUserNew style={{ marginRight: '8px'}} size={20}/> <span >Sign In</span>
+                    <Link to='/signUp'>
+                        <GrUserNew style={{ marginRight: '8px', color: 'white'}} size={20}/><span className="navigate">Sign Up</span>
+                    </Link>
                 </div>
 
                 {/* <div>
