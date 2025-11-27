@@ -1,0 +1,50 @@
+/* Sign Up Styles */
+.auth-section{
+    position: relative;
+    left: 10%;top: 40%;
+    width: 80%;
+    border: 2px solid white;
+    height: 40vw;
+    display: flex;
+    flex-direction: row;
+}
+ .auth-section .welcome-message{
+    width: 50%;height: auto;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.auth-section .welcome-message h3{
+    font-size: clamp(2rem, 2vw, 2.7rem);
+}
+.auth-section form{
+    width: 50%;height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.auth-section form .title{
+    color: black; 
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    margin-top: 2em; margin-bottom: 1.5em;
+    text-decoration: underline;
+}
+.auth-section form input{
+    display: block;
+    margin-bottom: 2em;
+    width: 80%; height: 2.6em;
+    font-size: 1rem;
+    color:  rgb(0, 0, 0);
+    background-color: rgba(252, 252, 252, 0.822);
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.auth-section form a{
+    color: black;
+    text-decoration: none;
+}
+.auth-section form button{
+    
+}
