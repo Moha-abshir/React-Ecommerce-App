@@ -1,4 +1,4 @@
-nav{
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -8,16 +8,29 @@ nav{
     width: 100%;
     height: 5em;
     border-bottom: 1px solid rgb(78, 78, 78);
+    position: relative;
+    /* Needed for absolute positioning of mobile menu */
+    z-index: 1000;
 }
-nav .logo{
+
+nav .logo {
     font-size: clamp(2rem, 4vw, 4rem);
     font-weight: 750;
+    z-index: 1001;
 }
-nav .logo .logo-link{
+
+nav .logo .logo-link {
     color: white;
     text-decoration: none;
 }
-nav .nav-links{
+
+/* Wrapper for desktop layout */
+nav .nav-elements {
+    display: contents;
+    /* Allows children to participate in the nav flex container */
+}
+
+nav .nav-links {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -29,17 +42,20 @@ nav .nav-links{
     border-radius: 24px;
     border: 2px solid rgb(78, 78, 78);
 }
-nav .nav-links .links{
+
+nav .nav-links .links {
     color: whitesmoke;
     text-decoration: none;
     font-size: clamp(1rem, 1.2vw, 3rem);
 }
-nav .nav-links .links.active{
+
+nav .nav-links .links.active {
     border: 1.5px solid rgb(78, 78, 78);
     padding: .3em .5em;
     border-radius: 16px;
 }
-nav .user-part{
+
+nav .user-part {
     display: flex;
     flex-direction: rows;
     justify-content: space-around;
@@ -47,7 +63,8 @@ nav .user-part{
     width: 22%;
     max-width: 400px;
 }
-nav .user-part .action{
+
+nav .user-part .action {
     border: 1px solid rgb(78, 78, 78);
     border-radius: 12px;
     padding: .1em .2em;
@@ -56,14 +73,16 @@ nav .user-part .action{
     align-items: center;
     background-color: rgb(19, 19, 19);
 }
-nav .user-part button{
+
+nav .user-part button {
     border: 1px solid rgb(78, 78, 78);
     border-radius: 10px 10px 10px 10px;
     background-color: transparent;
     padding: .3em;
     margin-left: 7px;
 }
-nav .user-part a{
+
+nav .user-part a {
     color: white;
     text-decoration: none;
 }
@@ -73,50 +92,71 @@ nav .user-part a{
     cursor: pointer;
 }
 
+/* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
+    nav {
+        justify-content: center;
+        /* Center the logo */
+    }
+
     .hamburger {
         display: block;
         position: absolute;
-        top: 1.5em;
-        right: 1.5em;
+        left: 20px;
+        z-index: 1001;
+        /* Ensure above menu */
     }
 
-    nav .nav-links {
+    nav .nav-elements {
         display: none;
+        /* Hidden by default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #181818;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid rgb(78, 78, 78);
+        border-top: 1px solid rgb(78, 78, 78);
+    }
+
+    nav .nav-elements.active {
+        display: flex;
+    }
+
+    /* Reset width and styles for dropdown items */
+    nav .nav-links {
+        width: 100%;
+        max-width: none;
+        flex-direction: column;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    nav .nav-links .links {
+        font-size: 1.5rem;
+        margin: 10px 0;
     }
 
     nav .user-part {
-        display: none;
-    }
-
-    nav.nav-open .nav-links {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 5em;
-        left: 0;
         width: 100%;
-        background-color: #181818;
-        border-top: 1px solid rgb(78, 78, 78); 
-        padding: 1em;
-    }
-
-    nav.nav-open .user-part {
-        display: flex;
+        max-width: none;
         flex-direction: column;
-        position: absolute;
-        top: 15em;
-        left: 0;
-        width: 100%;
-        background-color: #181818;
-        padding: 1em;
     }
 
-    nav.nav-open .nav-links .links {
-        margin-bottom: 1em;
+    nav .user-part .action {
+        margin: 10px 0;
+        width: 80%;
+        /* Button sstyle width */
+        text-align: center;
+        padding: 10px;
     }
 
-    nav.nav-open .user-part .action {
-        margin-bottom: 1em;
+    nav .user-part button {
+        margin-top: 10px;
     }
 }

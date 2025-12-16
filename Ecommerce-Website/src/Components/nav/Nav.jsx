@@ -22,35 +22,37 @@ export function Nav(){
                 {isOpen ? <FaTimes size={20} color="white"/> : <FaBars size={20} color="white"/>}
             </div>
 
-            <div className="nav-links">
-                <NavLink to='/' className='links'>Home</NavLink>
-                <NavLink to='/products' className='links'>Products</NavLink>
-                <NavLink to='/about' className='links'>About</NavLink>
-            </div>
-
-            <div className="user-part">
-                <div className=" action">
-                    <Link to='/login'>
-                        <IoLogInOutline style={{ marginRight: '8px', color:'white' }} size={20}/> <span className="navigate">Login</span>
-                    </Link>
+            <div className={`nav-elements ${isOpen && 'active'}`}>
+                <div className="nav-links">
+                    <NavLink to='/' className='links'>Home</NavLink>
+                    <NavLink to='/products' className='links'>Products</NavLink>
+                    <NavLink to='/about' className='links'>About</NavLink>
                 </div>
 
-                <div className="action">
-                    <Link to='/signUp'>
-                        <GrUserNew style={{ marginRight: '8px', color: 'white'}} size={20}/><span className="navigate">Sign Up</span>
-                    </Link>
-                </div>
-
-                {/* <div>
-                    <button><BsMoonStars color="rgb(0, 217, 255)" size={20}/></button>
-                </div> */}
-
-                <div>
-                    <button>
-                        <Link to='https://github.com/Moha-abshir/React-Ecommerce-App' target="blank">
-                            <FaGithub color="white" size={20}/>
+                <div className="user-part">
+                    <div className=" action">
+                        <Link to='/login'>
+                            <IoLogInOutline style={{ marginRight: '8px', color:'white' }} size={20}/> <span className="navigate">Login</span>
                         </Link>
-                    </button>
+                    </div>
+
+                    <div className="action">
+                        <Link to='/signUp'>
+                            <GrUserNew style={{ marginRight: '8px', color: 'white'}} size={20}/><span className="navigate">Sign Up</span>
+                        </Link>
+                    </div>
+
+                    {/* <div>
+                        <button><BsMoonStars color="rgb(0, 217, 255)" size={20}/></button>
+                    </div> */}
+
+                    <div>
+                        <button>
+                            <Link to='https://github.com/Moha-abshir/React-Ecommerce-App' target="blank">
+                                <FaGithub color="white" size={20}/>
+                            </Link>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
