@@ -1,11 +1,21 @@
 import { Link } from 'react-router-dom';
-import PropTypes from "prop-types";
 import { useState } from 'react';
 import { FaCheck } from "react-icons/fa";
 import './productgrid.css';
-export function SingleProduct({product, addToCart}){
+interface Product {
+    id: number,
+    title: string,
+    price: number, 
+    images: string[];
+};
+interface SingleProductProps{
+    product: Product,
+    addToCart: (id: number) => void;
+}
+export function SingleProduct({product, addToCart}: SingleProductProps){
+
     const [check, setCheck] = useState(false);
-    const handleTwoFunction = function(id){
+    const handleTwoFunction = function(id: number){
         addToCart(id)
         setCheck(true);
 
@@ -39,7 +49,3 @@ export function SingleProduct({product, addToCart}){
         </div>
     )
 }
-SingleProduct.propTypes = {
-    product: PropTypes.array.isRequired,
-    addToCart: PropTypes.func.isRequired
-};
