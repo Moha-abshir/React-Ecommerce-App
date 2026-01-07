@@ -2,12 +2,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { FaCheck } from "react-icons/fa";
 import './productgrid.css';
-interface Product {
-    id: number,
-    title: string,
-    price: number, 
-    images: string[];
-};
+import {Product} from '../../types/type'
+
 interface SingleProductProps{
     product: Product,
     addToCart: (id: number) => void;

@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
-
 import { SingleProduct } from './SingleProduct';
+import {Product} from '../../types/type'
 import noProducts  from '../../assets/no-products.png'
 
-export function ProductGrid({filteredProducts, addToCart}){
+interface ProductGridProps{
+    filteredProducts: Product[], //Filtered products is an array of objects
+    addToCart: (id:number)=>void;
+}
+export function ProductGrid({filteredProducts, addToCart}: ProductGridProps){
 
     if (filteredProducts.length === 0) {
         return (
@@ -26,7 +29,3 @@ export function ProductGrid({filteredProducts, addToCart}){
         </div>
     )
 }
-ProductGrid.propTypes = {
-  filteredProducts: PropTypes.array.isRequired,
-  addToCart: PropTypes.func.isRequired
-};
