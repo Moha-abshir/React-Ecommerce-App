@@ -1,17 +1,26 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { ProductFilter } from './ProductFilter';
 import { ProductGrid } from './ProductGrid';
 import { Nav } from "../nav/Nav";
+import { Product } from '../../types/type';
 import { IoIosSearch } from "react-icons/io";
 import { FaShoppingCart } from "react-icons/fa";
 import './products.css';
 
+interface ProductsProps{
+    products: Product[], //array/lists of products originally obtained from the response of API
+    handleMin: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    handleMax: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    min: number, max: number,
+    handleName: (e: React.ChangeEvent<HTMLInputElement>) => void, 
+    productName: string, 
+    addToCart: (id:number)=>void, 
+    cartItems: Product[] //Also array of products since we are adding multiple products to the cart
+}
 
-
-export function  Products({products, handleMin, handleMax, min, max, handleName, productName,addToCart, cartItems}){
+export function  Products({products, handleMin, handleMax, min, max, handleName, productName,addToCart, cartItems}: ProductsProps){
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isShown, setIsShown] = useState(false);
@@ -46,13 +55,13 @@ export function  Products({products, handleMin, handleMax, min, max, handleName,
             </>
         )
     }
-
-    const filterProducts = function (categoryId){
+ 
+    const filterProducts = function (categoryId: string){
         if(categoryId === "All"){
-            setFilteredProducts(products)
+            setFilteredProducts(products);
         }
         else{
-            const necessaryDisplayedProduct = products.filter(p=> p.category.name === categoryId)
+            const necessaryDisplayedProduct = products.filter(p => p.category.name === categoryId);
             setFilteredProducts(necessaryDisplayedProduct)
         }
     }
@@ -106,14 +115,3 @@ export function  Products({products, handleMin, handleMax, min, max, handleName,
         </>
     )
 }
-Products.propTypes = {
-  products: PropTypes.array.isRequired,
-  handleMin: PropTypes.func.isRequired,
-  handleMax: PropTypes.func.isRequired,
-  min: PropTypes.string.isRequired,
-  max: PropTypes.string.isRequired,
-  handleName: PropTypes.func.isRequired,
-  productName: PropTypes.string.isRequired, 
-  addToCart: PropTypes.func.isRequired, 
-  cartItems: PropTypes.array.isRequired
-};
