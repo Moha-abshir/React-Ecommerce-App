@@ -19,9 +19,16 @@ interface ProductsProps{
     addToCart: (id:number)=>void, 
     cartItems: Product[] //Also array of products since we are adding multiple products to the cart
 }
+//We tell the Ts what the raw data we are fetching looks like when it returns
+interface CategoryAPI{
+    id: number, 
+    name: string, 
+    image: string
+}
 
 export function  Products({products, handleMin, handleMax, min, max, handleName, productName,addToCart, cartItems}: ProductsProps){
-    const [categories, setCategories] = useState([]);
+    //const [categories, setCategories] = useState([]); The error occurs here. Ts sees an empty array and assigns the type 'never[]' to it. When you try to add strings to it, it throws an error. Solution below
+    const [categories, setCategories] = useState <string[]>([]); //This tells ts that it is supposed to hold arrays of strings when using setCategories function
     const [isLoading, setIsLoading] = useState(true);
     const [isShown, setIsShown] = useState(false);
     const [filteredProducts, setFilteredProducts] = useState(products);
@@ -33,7 +40,7 @@ export function  Products({products, handleMin, handleMax, min, max, handleName,
     useEffect(() => {
         try {
             const getCategories = async function (){
-            const res = await axios.get('https://api.escuelajs.co/api/v1/categories');
+            const res = await axios.get<CategoryAPI[]>('https://api.escuelajs.co/api/v1/categories');
             const arrayOfCategoryObjects = (res.data);
             const categoryNames = arrayOfCategoryObjects.map(cat => cat.name);
             setCategories(['All', ...categoryNames]);
