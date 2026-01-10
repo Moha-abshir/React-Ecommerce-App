@@ -1,10 +1,14 @@
-import PropTypes from 'prop-types';
 import '../Home/homepage.css'
 import './products.css';
 
-export function ProductFilter({isShown, setIsShown, handleMin, handleMax, min ,max}){
-	
-
+interface ProductFilterProps{
+	isShown: boolean,
+	setIsShown: (val: boolean) => void, //For handling state setters in Ts, you cam just simply type it as a function that takes a value and has no return value
+	handleMin: (e: React.ChangeEvent <HTMLInputElement>) => void,
+	handleMax: (e: React.ChangeEvent <HTMLInputElement>) => void,
+	min: number, max: number;
+}
+export function ProductFilter({isShown, setIsShown, handleMin, handleMax, min ,max}: ProductFilterProps){
     return(
         <>
             <div className={`filter-option ${isShown ? 'show' : ''}`}>
@@ -28,11 +32,3 @@ export function ProductFilter({isShown, setIsShown, handleMin, handleMax, min ,m
         </>
     )
 }
-ProductFilter.propTypes = {
-  isShown: PropTypes.bool.isRequired,
-  setIsShown:PropTypes.func.isRequired,
-  handleMin: PropTypes.func.isRequired,
-  handleMax: PropTypes.func.isRequired,
-  min: PropTypes.string.isRequired,
-  max: PropTypes.string.isRequired
-};
