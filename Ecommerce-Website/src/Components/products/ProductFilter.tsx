@@ -1,9 +1,10 @@
 import '../Home/homepage.css'
 import './products.css';
+import { Dispatch, SetStateAction } from 'react';
 
 interface ProductFilterProps{
 	isShown: boolean,
-	setIsShown: (val: boolean) => void, //For handling state setters in Ts, you cam just simply type it as a function that takes a value and has no return value
+	setIsShown: Dispatch<SetStateAction<boolean>>, //Official react way of telling Ts that this is a STATE SETTER from useState.
 	handleMin: (e: React.ChangeEvent <HTMLInputElement>) => void,
 	handleMax: (e: React.ChangeEvent <HTMLInputElement>) => void,
 	min: number, max: number;
