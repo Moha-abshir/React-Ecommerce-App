@@ -12,6 +12,18 @@ export function ProductDetail({products, addToCart}: ProductDetailProps){
     const {id} = useParams();
     const product = products.find(p=> Number(p.id)===Number(id));
 
+    if (!product) {
+        return (
+            <>
+                <Nav />
+                <div className="not-found">
+                    <h2>Product not found!</h2>
+                    <Link to="/products" className="return-link">Back to Products</Link>
+                </div>
+            </>
+        );
+    }
+
     return(
         <>
             <Nav/>
