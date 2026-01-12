@@ -76,7 +76,6 @@ export function App() {
     return(
         <Routes>
             <Route index element={<HomePage/>}/>
-
             <Route path="products" element={<Products products={products} handleMin={handleMin} handleMax={handleMax} min={min} max={max} handleName={handleName} productName={productName} addToCart={addToCart} cartItems={cartItems}/>}/>
             <Route path="products/:id" element={<ProductDetail products={products} addToCart={addToCart}/>}/>
             <Route path="about" element={<About/>}/>
