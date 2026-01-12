@@ -1,9 +1,16 @@
-import PropTypes from 'prop-types';
 import { Nav } from '../nav/Nav';
 import { MdDeleteOutline } from "react-icons/md";
 import './cart.css'
+import { Product } from '../../types/type';
+import React from 'react';
+interface CartProps{
+    cartItems: Product[],
+    addToCart: (id: number)=>void,
+    removeFromCart: (id:number) => void,
+    decreaseQuantity: (id:number) => void
+}
 
-export function Cart({ cartItems, addToCart, removeFromCart, decreaseQuantity }){
+export function Cart({ cartItems, addToCart, removeFromCart, decreaseQuantity}: CartProps){
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
     if (cartItems.length === 0) {
@@ -61,11 +68,4 @@ export function Cart({ cartItems, addToCart, removeFromCart, decreaseQuantity })
             </section>
         </>
     )
-}
-
-Cart.propTypes = {
-    cartItems: PropTypes.array.isRequired,
-    addToCart: PropTypes.func.isRequired,
-    removeFromCart: PropTypes.func.isRequired,
-    decreaseQuantity: PropTypes.func.isRequired
 }

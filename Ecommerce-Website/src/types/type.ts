@@ -5,6 +5,7 @@ export interface Product { //We export the interface so that it can be accessed 
     id: number,
     title: string,
     price: number, 
+    quantity: number,
     images: string[], 
     description: string,
     //since the product also has category arrays, we need to specify it because it is to be used by the Products page.
