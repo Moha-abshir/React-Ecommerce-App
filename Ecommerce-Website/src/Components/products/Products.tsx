@@ -13,7 +13,7 @@ interface ProductsProps{
     products: Product[], //array/lists of products originally obtained from the response of API
     handleMin: (e: React.ChangeEvent<HTMLInputElement>) => void,
     handleMax: (e: React.ChangeEvent<HTMLInputElement>) => void,
-    min: number, max: number,
+    min: string, max: string,
     handleName: (e: React.ChangeEvent<HTMLInputElement>) => void, 
     productName: string, 
     addToCart: (id:number)=>void, 

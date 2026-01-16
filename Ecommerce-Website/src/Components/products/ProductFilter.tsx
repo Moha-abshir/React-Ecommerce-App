@@ -7,7 +7,7 @@ interface ProductFilterProps{
 	setIsShown: Dispatch<SetStateAction<boolean>>, //Official react way of telling Ts that this is a STATE SETTER from useState.
 	handleMin: (e: React.ChangeEvent <HTMLInputElement>) => void,
 	handleMax: (e: React.ChangeEvent <HTMLInputElement>) => void,
-	min: number, max: number;
+	min: string, max: string;
 }
 export function ProductFilter({isShown, setIsShown, handleMin, handleMax, min ,max}: ProductFilterProps){
     return(
